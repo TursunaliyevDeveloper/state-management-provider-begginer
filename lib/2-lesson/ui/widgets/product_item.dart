@@ -12,7 +12,8 @@ class ProductItem extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DescriptionPage()),
+          MaterialPageRoute(builder: (context) => DescriptionPage(descrip: product
+)),
         );
       },
       child: Container(
