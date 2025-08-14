@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:provider_statemanegement/default_state_management/default_counter.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_statemanegement/provider/counter_view_model.dart';
+import 'package:provider_statemanegement/provider/provider_counter.dart';
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_)=>CounterViewModel())
+    ],
+    child: const MyApp()));
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: ProviderCounter(),
     );
   }
 }
